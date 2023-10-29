@@ -1,0 +1,31 @@
+# LaTeX files
+*.aux
+*.lo[gft]
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.dvi
+*.fdb_latexmk
+_minted*
+*.pyg
+*.synctex.gz
+*.blg
+# *.bbl	# It's useful to keep bbl files so a typeset-able set of source files can be distributed.
+*.bak
+*.sav
+.texpadtmp
+*.backup
+*~[0-9]*
+*/auto/*
+
+# Mac OS system files
+.DS_Store
+._*
+.AppleDouble
+
+# Windows system files
+Thumbs.db
