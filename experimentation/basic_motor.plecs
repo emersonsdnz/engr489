@@ -34,8 +34,8 @@ Plecs {
   TaskingMode   "1"
   TaskConfigurations ""
   CodeGenParameterInlining "2"
-  CodeGenInliningExceptions "AAAACwAAAAACAAAAFgBNAG8AdABvAHIAIABTAHAAZQBlAGQAA"
-"AASAEEAbQBwAGwAaQB0AHUAZABl"
+  CodeGenInliningExceptions "AAAACwAAAAACAAAAEgBTAGUAdAAgAFMAcABlAGUAZAAAABIAQ"
+"QBtAHAAbABpAHQAdQBkAGU="
   CodeGenFloatingPointFormat "1"
   CodeGenAbsTimeUsageMsg "3"
   CodeGenBaseName ""
@@ -107,7 +107,7 @@ Plecs {
     Index         "2"
   }
   Schematic {
-    Location      [642, 72; 2566, 860]
+    Location      [0, 72; 1924, 860]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -117,7 +117,7 @@ Plecs {
       SrcComponent  "TIC2000_Lib/PWM"
       Name          "PWM"
       Show          on
-      Position      [800, 80]
+      Position      [845, 105]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -237,7 +237,7 @@ Plecs {
       Type          SignalMux
       Name          "Mux2"
       Show          off
-      Position      [620, 120]
+      Position      [665, 145]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -251,21 +251,21 @@ Plecs {
       Type          Scope
       Name          "Scope"
       Show          on
-      Position      [795, 170]
+      Position      [840, 195]
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1083, 292; 1433, 529]
+      Location      [1160, 311; 1510, 558]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADSAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADcAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAGQAAAAIAAAAZAAAAAUAAABkAAAABAAAAGQAAAAHAAAAZAAAAAYAAABkAAAAAQAAAGQAAAADAA"
-"AAZAAAAAIAAABkAAAAnwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
+"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
+"AAZAAAAAMAAABkAAAAnwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAB7AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAkAAAAAQAAAAAAAAPoAAAAACQ="
@@ -312,7 +312,7 @@ Plecs {
       Type          Trigonometry
       Name          "Trigonometric\nFunction"
       Show          on
-      Position      [495, 55]
+      Position      [540, 80]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -332,7 +332,7 @@ Plecs {
       SrcComponent  "TIC2000_Lib/Powerstage Protection"
       Name          "Powerstage Protection"
       Show          on
-      Position      [405, 295]
+      Position      [450, 320]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -413,7 +413,7 @@ Plecs {
       SrcComponent  "TIC2000_Lib/Digital Out"
       Name          "Digital Out"
       Show          on
-      Position      [675, 245]
+      Position      [720, 270]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -443,7 +443,7 @@ Plecs {
       Type          Constant
       Name          "Constant"
       Show          on
-      Position      [605, 245]
+      Position      [650, 270]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -463,7 +463,7 @@ Plecs {
       Type          Trigonometry
       Name          "Trigonometric\nFunction1"
       Show          on
-      Position      [495, 120]
+      Position      [540, 145]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -482,7 +482,7 @@ Plecs {
       Type          Offset
       Name          "Phase Offset"
       Show          on
-      Position      [400, 120]
+      Position      [445, 145]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -507,7 +507,7 @@ Plecs {
       Type          Trigonometry
       Name          "Trigonometric\nFunction2"
       Show          on
-      Position      [495, 190]
+      Position      [540, 215]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -526,7 +526,7 @@ Plecs {
       Type          Offset
       Name          "Phase Offset1"
       Show          on
-      Position      [400, 190]
+      Position      [445, 215]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -551,7 +551,7 @@ Plecs {
       Type          Constant
       Name          "Amplitude"
       Show          on
-      Position      [640, 50]
+      Position      [685, 75]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -571,7 +571,7 @@ Plecs {
       Type          Product
       Name          "Product1"
       Show          off
-      Position      [685, 120]
+      Position      [730, 145]
       Direction     up
       Flipped       on
       LabelPosition north
@@ -598,13 +598,13 @@ Plecs {
     }
     Component {
       Type          Constant
-      Name          "Motor Speed"
+      Name          "Set Speed"
       Show          on
-      Position      [65, 120]
+      Position      [85, 145]
       Direction     right
       Flipped       off
       LabelPosition south
-      Frame         [-10, -10; 10, 10]
+      Frame         [-25, -10; 25, 10]
       Parameter {
         Variable      "Value"
         Value         "0"
@@ -620,7 +620,7 @@ Plecs {
       Type          Integrator
       Name          "Integrator"
       Show          on
-      Position      [285, 120]
+      Position      [330, 145]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -664,7 +664,7 @@ Plecs {
       Type          ConstantRelationalOperator
       Name          "Compare to\nConstant"
       Show          on
-      Position      [275, 295]
+      Position      [320, 320]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -684,7 +684,7 @@ Plecs {
       Type          Display
       Name          "Enabled?"
       Show          on
-      Position      [500, 295]
+      Position      [545, 320]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -704,7 +704,7 @@ Plecs {
       Type          RateLimiter
       Name          "Rate Limiter"
       Show          on
-      Position      [125, 120]
+      Position      [170, 145]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -715,7 +715,7 @@ Plecs {
       }
       Parameter {
         Variable      "FallingRateLimit"
-        Value         "-20"
+        Value         "-50"
         Show          on
       }
       Parameter {
@@ -728,7 +728,7 @@ Plecs {
       Type          Gain
       Name          "Gain"
       Show          on
-      Position      [230, 120]
+      Position      [275, 145]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -755,9 +755,9 @@ Plecs {
     }
     Component {
       Type          Display
-      Name          "Enabled?1"
+      Name          "Rate Limited Speed"
       Show          on
-      Position      [260, 65]
+      Position      [305, 90]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -798,7 +798,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Trigonometric\nFunction"
       SrcTerminal   2
-      Points        [565, 55; 565, 110]
+      Points        [610, 80; 610, 135]
       DstComponent  "Mux2"
       DstTerminal   2
     }
@@ -813,7 +813,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Trigonometric\nFunction2"
       SrcTerminal   2
-      Points        [565, 190; 565, 130]
+      Points        [610, 215; 610, 155]
       DstComponent  "Mux2"
       DstTerminal   4
     }
@@ -821,7 +821,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Amplitude"
       SrcTerminal   1
-      Points        [685, 50]
+      Points        [730, 75]
       DstComponent  "Product1"
       DstTerminal   3
     }
@@ -836,14 +836,14 @@ Plecs {
       Type          Signal
       SrcComponent  "Product1"
       SrcTerminal   1
-      Points        [740, 120]
+      Points        [785, 145]
       Branch {
-        Points        [740, 80]
+        Points        [785, 105]
         DstComponent  "PWM"
         DstTerminal   1
       }
       Branch {
-        Points        [740, 170]
+        Points        [785, 195]
         DstComponent  "Scope"
         DstTerminal   1
       }
@@ -852,18 +852,18 @@ Plecs {
       Type          Signal
       SrcComponent  "Integrator"
       SrcTerminal   2
-      Points        [320, 120]
+      Points        [365, 145]
       Branch {
         DstComponent  "Phase Offset"
         DstTerminal   1
       }
       Branch {
-        Points        [320, 190]
+        Points        [365, 215]
         DstComponent  "Phase Offset1"
         DstTerminal   1
       }
       Branch {
-        Points        [320, 55]
+        Points        [365, 80]
         DstComponent  "Trigonometric\nFunction"
         DstTerminal   1
       }
@@ -884,7 +884,7 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Motor Speed"
+      SrcComponent  "Set Speed"
       SrcTerminal   1
       DstComponent  "Rate Limiter"
       DstTerminal   1
@@ -900,9 +900,9 @@ Plecs {
       Type          Signal
       SrcComponent  "Rate Limiter"
       SrcTerminal   2
-      Points        [185, 120]
+      Points        [230, 145]
       Branch {
-        Points        [185, 295]
+        Points        [230, 320]
         DstComponent  "Compare to\nConstant"
         DstTerminal   1
       }
@@ -911,8 +911,8 @@ Plecs {
         DstTerminal   1
       }
       Branch {
-        Points        [185, 65]
-        DstComponent  "Enabled?1"
+        Points        [230, 90]
+        DstComponent  "Rate Limited Speed"
         DstTerminal   1
       }
     }
