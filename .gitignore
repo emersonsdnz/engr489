@@ -29,3 +29,6 @@ _minted*
 
 # Windows system files
 Thumbs.db
+
+# PLECS
+*_codegen/
