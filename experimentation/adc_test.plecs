@@ -1,14 +1,14 @@
 Plecs {
   Name          "adc_test"
   Version       "4.8"
-  CircuitModel  "DiscStateSpace"
+  CircuitModel  "ContStateSpace"
   StartTime     "0.0"
   TimeSpan      "1.0"
   Timeout       ""
   Solver        "auto"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "1e-4"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-3"
@@ -46,7 +46,7 @@ Plecs {
 "vAGwAAAACADEAAAAUAHQAYQByAGcAZQB0AEMAbwByAGUAAAACADEAAAASAHMAeQBzAEMAbABrAE0A"
 "SAB6AAAABgAxADkAMAAAABQAaQBuAHMAdABhAGwAbABEAGkAcgAAAAAAAAAOAGcAZQBuAE8AbgBsA"
 "HkAAAACADIAAAAcAGUAeAB0AE0AbwBkAGUAUwBjAGkAUABpAG4AcwAAAA4AWwA0ADMALAA0ADIAXQ"
-"AAACIAZQB4AHQATQBvAGQAZQBCAHUAZgBmAGUAcgBTAGkAegBlAAAACAAxADAAMAAwAAAAEgBlAHg"
+"AAACIAZQB4AHQATQBvAGQAZQBCAHUAZgBmAGUAcgBTAGkAegBlAAAACAAyADAAMAAwAAAAEgBlAHg"
 "AdABDAGwAawBNAEgAegAAAAQAMwAwAAAACABjAGgAaQBwAAAAAgAxAAAAFgBiAHUAaQBsAGQAQwBv"
 "AG4AZgBpAGcAAAACADEAAAAKAGIAbwBhAHIAZAAAAAIAMgAAAEoAVQBTAEUAXwBEAEEAVABBAF8AV"
 "ABZAFAARQBTAF8ARgBPAFIAXwBUAFUATgBBAEIATABFAF8AUABBAFIAQQBNAEUAVABFAFIAUwAAAA"
@@ -108,6 +108,10 @@ Plecs {
     Type          Output
     Index         "3"
   }
+  Terminal {
+    Type          Output
+    Index         "4"
+  }
   Schematic {
     Location      [961, 31; 1919, 1000]
     ZoomFactor    1
@@ -119,14 +123,14 @@ Plecs {
       SrcComponent  "TIC2000_Lib/ADC"
       Name          "ADC"
       Show          on
-      Position      [55, 370]
+      Position      [275, 395]
       Direction     up
       Flipped       off
       LabelPosition south
       Frame         [-25, -25; 25, 25]
       Parameter {
         Variable      "trig"
-        Value         "1"
+        Value         "2"
         Show          off
       }
       Parameter {
@@ -242,31 +246,11 @@ Plecs {
       }
     }
     Component {
-      Type          Display
-      Name          "Display"
-      Show          on
-      Position      [175, 310]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      Frame         [-31, -11; 31, 11]
-      Parameter {
-        Variable      "Notation"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Precision"
-        Value         "4"
-        Show          off
-      }
-    }
-    Component {
       Type          Reference
       SrcComponent  "TIC2000_Lib/Digital Out"
       Name          "Digital Out1"
       Show          on
-      Position      [585, 425]
+      Position      [515, 435]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -293,176 +277,11 @@ Plecs {
       }
     }
     Component {
-      Type          TriangleGenerator
-      Name          "Triangular Wave"
-      Show          on
-      Position      [375, 470]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Min"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "Max"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "f"
-        Value         "100"
-        Show          off
-      }
-      Parameter {
-        Variable      "DutyCycle"
-        Value         "0.5"
-        Show          off
-      }
-      Parameter {
-        Variable      "Delay"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Integrator
-      Name          "Integrator"
-      Show          on
-      Position      [190, 370]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "ExternalReset"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "InitialConditionSource"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ShowStatePort"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "EnableWrapping"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "UpperLimit"
-        Value         "inf"
-        Show          off
-      }
-      Parameter {
-        Variable      "LowerLimit"
-        Value         "-inf"
-        Show          off
-      }
-    }
-    Component {
-      Type          Trigonometry
-      Name          "Trigonometric\nFunction"
-      Show          on
-      Position      [310, 370]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Operator"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Unit"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          RelationalOperator
-      Name          "Relational\nOperator"
-      Show          on
-      Position      [465, 425]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Operator"
-        Value         "6"
-        Show          off
-      }
-    }
-    Component {
-      Type          Offset
-      Name          "Offset"
-      Show          on
-      Position      [375, 370]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-20, -10; 20, 10]
-      Parameter {
-        Variable      "Offset"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataTypeOverflowMode"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Gain
-      Name          "Gain"
-      Show          on
-      Position      [250, 370]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "K"
-        Value         "5"
-        Show          off
-      }
-      Parameter {
-        Variable      "Multiplication"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataTypeOverflowMode"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
       Type          Reference
       SrcComponent  "TIC2000_Lib/Digital Out"
       Name          "Digital Out2"
       Show          on
-      Position      [585, 495]
+      Position      [515, 495]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -492,7 +311,7 @@ Plecs {
       Type          LogicalOperator
       Name          "Logical\nOperator"
       Show          on
-      Position      [525, 495]
+      Position      [455, 495]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -507,6 +326,257 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [380, 365]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Location      [0, 27; 1920, 1068]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAeAAAAAY/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABQAP///wAAB4AAAAOPAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL+AMAAAAHAAAAC"
+"AAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAAAAZAAAAAUAAABkAAAAAwAAAGQAAAeAAA"
+"AACwEAAAEAAAAAAAAAAAAAAABk/////wAAAIEAAAAAAAAACwAAAHMAAAABAAAAAAAAAGQAAAABAAA"
+"AAAAAAGQAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAB"
+"AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAABkUAAAABAAAAAAAAA+gAA"
+"AAAJA=="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
+"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABP/AAAAAAAAAAAAABAAAAAQA="
+      Axes          "1"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "TIC2000_Lib/PWM"
+      Name          "PWM"
+      Show          on
+      Position      [195, 330]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-25, -25; 25, 25]
+      Parameter {
+        Variable      "pwm"
+        Value         "[1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "type"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "fc"
+        Value         "95000"
+        Show          off
+      }
+      Parameter {
+        Variable      "fc_tol"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "outmode"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "delay"
+        Value         "0.1e-6"
+        Show          off
+      }
+      Parameter {
+        Variable      "polarity"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "sequence"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "show_enable"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "socsel"
+        Value         "4"
+        Show          off
+      }
+      Parameter {
+        Variable      "socsel_prd"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "intsel"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "intsel_prd"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "tz1mode"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "tz2mode"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "tz3mode"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "TargetPortIndices"
+        Value         "4"
+        Show          off
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 0]
+        Direction     left
+      }
+      Terminal {
+        Type          EventOutput
+        Position      [29, 15]
+        Direction     right
+      }
+      Terminal {
+        Type          EventOutput
+        Position      [29, -15]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, 10]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-25, -10]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Constant1"
+      Show          on
+      Position      [130, 330]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -10; 15, 10]
+      Parameter {
+        Variable      "Value"
+        Value         "0.5"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          TriangleGenerator
+      Name          "Triangular Wave"
+      Show          on
+      Position      [275, 460]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Min"
+        Value         "0.1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Max"
+        Value         "1.9"
+        Show          off
+      }
+      Parameter {
+        Variable      "f"
+        Value         "200"
+        Show          off
+      }
+      Parameter {
+        Variable      "DutyCycle"
+        Value         "0.5"
+        Show          off
+      }
+      Parameter {
+        Variable      "Delay"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          RelationalOperator
+      Name          "Relational\nOperator"
+      Show          on
+      Position      [365, 435]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Operator"
+        Value         "6"
+        Show          off
+      }
+    }
     Connection {
       Type          Signal
       SrcComponent  "Constant"
@@ -517,53 +587,47 @@ Plecs {
     }
     Connection {
       Type          Signal
+      SrcComponent  "Logical\nOperator"
+      SrcTerminal   1
+      DstComponent  "Digital Out2"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
       SrcComponent  "ADC"
       SrcTerminal   1
-      Points        [125, 370]
+      Points        [330, 395]
       Branch {
-        Points        [125, 310]
-        DstComponent  "Display"
+        Points        [330, 365]
+        DstComponent  "Scope"
         DstTerminal   1
       }
       Branch {
-        DstComponent  "Integrator"
+        Points        [330, 430]
+        DstComponent  "Relational\nOperator"
         DstTerminal   1
       }
     }
     Connection {
       Type          Signal
-      SrcComponent  "Trigonometric\nFunction"
-      SrcTerminal   2
-      DstComponent  "Offset"
+      SrcComponent  "Constant1"
+      SrcTerminal   1
+      DstComponent  "PWM"
       DstTerminal   1
     }
     Connection {
-      Type          Signal
-      SrcComponent  "Offset"
-      SrcTerminal   2
-      Points        [425, 370; 425, 420]
-      DstComponent  "Relational\nOperator"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Gain"
-      SrcTerminal   2
-      DstComponent  "Trigonometric\nFunction"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Integrator"
-      SrcTerminal   2
-      DstComponent  "Gain"
-      DstTerminal   1
+      Type          Event
+      SrcComponent  "PWM"
+      SrcTerminal   3
+      Points        [275, 315]
+      DstComponent  "ADC"
+      DstTerminal   3
     }
     Connection {
       Type          Signal
       SrcComponent  "Triangular Wave"
       SrcTerminal   1
-      Points        [410, 470; 410, 445; 425, 445; 425, 430]
+      Points        [310, 460; 310, 440]
       DstComponent  "Relational\nOperator"
       DstTerminal   2
     }
@@ -571,23 +635,15 @@ Plecs {
       Type          Signal
       SrcComponent  "Relational\nOperator"
       SrcTerminal   3
-      Points        [490, 425]
+      Points        [425, 435]
       Branch {
         DstComponent  "Digital Out1"
         DstTerminal   1
       }
       Branch {
-        Points        [490, 495]
         DstComponent  "Logical\nOperator"
         DstTerminal   2
       }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Logical\nOperator"
-      SrcTerminal   1
-      DstComponent  "Digital Out2"
-      DstTerminal   1
     }
     Annotation {
       Name          "<html><body>\n<p>Works with AFG connected to pin 30 w/ GN"
