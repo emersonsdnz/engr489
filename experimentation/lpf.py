@@ -33,7 +33,7 @@ with open(file_path) as csvfile:
 
 data = list(zip(*data))
 
-window = 200
+window = 1
 smoothed = []
 
 for col in range(num_chans):

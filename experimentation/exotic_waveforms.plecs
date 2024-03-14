@@ -1,5 +1,5 @@
 Plecs {
-  Name          "basic_motor"
+  Name          "exotic_waveforms"
   Version       "4.8"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -107,17 +107,17 @@ Plecs {
     Index         "2"
   }
   Schematic {
-    Location      [1, 31; 1269, 1000]
+    Location      [0, 23; 1920, 1001]
     ZoomFactor    1
     SliderPosition [0, 0]
     ShowBrowser   off
-    BrowserWidth  143
+    BrowserWidth  100
     Component {
       Type          Reference
       SrcComponent  "TIC2000_Lib/PWM"
       Name          "PWM"
       Show          on
-      Position      [955, 100]
+      Position      [1215, 230]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -134,12 +134,12 @@ Plecs {
       }
       Parameter {
         Variable      "fc"
-        Value         "6000000"
+        Value         "95000"
         Show          off
       }
       Parameter {
         Variable      "fc_tol"
-        Value         "2"
+        Value         "1"
         Show          off
       }
       Parameter {
@@ -149,7 +149,7 @@ Plecs {
       }
       Parameter {
         Variable      "delay"
-        Value         "0"
+        Value         "0.1e-6"
         Show          off
       }
       Parameter {
@@ -237,7 +237,7 @@ Plecs {
       Type          SignalMux
       Name          "Mux2"
       Show          off
-      Position      [690, 145]
+      Position      [990, 275]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -251,15 +251,15 @@ Plecs {
       Type          Scope
       Name          "Scope"
       Show          on
-      Position      [950, 190]
+      Position      [1210, 320]
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [777, 372; 1454, 689]
+      Location      [655, 360; 1613, 644]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAqUAAAEiAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAA74AAAEBAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -309,30 +309,11 @@ Plecs {
       }
     }
     Component {
-      Type          Trigonometry
-      Name          "Trigonometric\nFunction"
-      Show          on
-      Position      [565, 80]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Operator"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Unit"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
       Type          Reference
       SrcComponent  "TIC2000_Lib/Powerstage Protection"
       Name          "Powerstage Protection"
       Show          on
-      Position      [475, 320]
+      Position      [640, 450]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -413,7 +394,7 @@ Plecs {
       SrcComponent  "TIC2000_Lib/Digital Out"
       Name          "Digital Out"
       Show          on
-      Position      [745, 270]
+      Position      [1045, 400]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -443,7 +424,7 @@ Plecs {
       Type          Constant
       Name          "Constant"
       Show          on
-      Position      [675, 270]
+      Position      [975, 400]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -460,105 +441,17 @@ Plecs {
       }
     }
     Component {
-      Type          Trigonometry
-      Name          "Trigonometric\nFunction1"
-      Show          on
-      Position      [565, 145]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Operator"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Unit"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Offset
-      Name          "Phase Offset"
-      Show          on
-      Position      [470, 145]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-30, -10; 30, 10]
-      Parameter {
-        Variable      "Offset"
-        Value         "2*pi/3"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataTypeOverflowMode"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Trigonometry
-      Name          "Trigonometric\nFunction2"
-      Show          on
-      Position      [565, 215]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Operator"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Unit"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Offset
-      Name          "Phase Offset1"
-      Show          on
-      Position      [470, 215]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-30, -10; 30, 10]
-      Parameter {
-        Variable      "Offset"
-        Value         "4*pi/3"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataTypeOverflowMode"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
       Type          Constant
       Name          "Set Speed"
       Show          on
-      Position      [65, 145]
+      Position      [230, 275]
       Direction     right
       Flipped       off
       LabelPosition south
       Frame         [-25, -10; 25, 10]
       Parameter {
         Variable      "Value"
-        Value         "50"
+        Value         "1"
         Show          off
       }
       Parameter {
@@ -571,7 +464,7 @@ Plecs {
       Type          Integrator
       Name          "Integrator"
       Show          on
-      Position      [355, 145]
+      Position      [520, 275]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -615,7 +508,7 @@ Plecs {
       Type          ConstantRelationalOperator
       Name          "Compare to\nConstant"
       Show          on
-      Position      [345, 320]
+      Position      [435, 415]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -635,7 +528,7 @@ Plecs {
       Type          Display
       Name          "Enabled?"
       Show          on
-      Position      [570, 320]
+      Position      [735, 450]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -655,7 +548,7 @@ Plecs {
       Type          Gain
       Name          "Gain"
       Show          on
-      Position      [300, 145]
+      Position      [465, 275]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -684,7 +577,7 @@ Plecs {
       Type          Display
       Name          "Rate Limited Speed"
       Show          on
-      Position      [330, 90]
+      Position      [495, 220]
       Direction     up
       Flipped       off
       LabelPosition south
@@ -704,7 +597,7 @@ Plecs {
       Type          RateLimiter
       Name          "Rate Limiter"
       Show          on
-      Position      [160, 145]
+      Position      [325, 275]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -725,27 +618,41 @@ Plecs {
       }
     }
     Component {
-      Type          Offset
-      Name          "Phase Offset2"
+      Type          LogicalOperator
+      Name          "Logical\nOperator"
       Show          on
-      Position      [470, 80]
+      Position      [520, 450]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Operator"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          ConstantRelationalOperator
+      Name          "Compare to\nConstant1"
+      Show          on
+      Position      [435, 475]
       Direction     right
       Flipped       off
       LabelPosition south
-      Frame         [-30, -10; 30, 10]
+      Frame         [-20, -10; 20, 10]
       Parameter {
-        Variable      "Offset"
+        Variable      "Operator"
+        Value         "6"
+        Show          off
+      }
+      Parameter {
+        Variable      "Threshold"
         Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataTypeOverflowMode"
-        Value         "1"
         Show          off
       }
     }
@@ -753,7 +660,7 @@ Plecs {
       Type          Sum
       Name          "Sum"
       Show          off
-      Position      [855, 145]
+      Position      [1140, 275]
       Direction     up
       Flipped       on
       LabelPosition north
@@ -782,7 +689,7 @@ Plecs {
       Type          Product
       Name          "Product1"
       Show          off
-      Position      [805, 145]
+      Position      [1090, 275]
       Direction     up
       Flipped       on
       LabelPosition north
@@ -811,14 +718,14 @@ Plecs {
       Type          Constant
       Name          "Amplitude"
       Show          on
-      Position      [705, 60]
+      Position      [980, 185]
       Direction     right
       Flipped       off
       LabelPosition south
       Frame         [-25, -10; 25, 10]
       Parameter {
         Variable      "Value"
-        Value         "0.3"
+        Value         "0.8"
         Show          off
       }
       Parameter {
@@ -831,7 +738,7 @@ Plecs {
       Type          Gain
       Name          "Adj"
       Show          on
-      Position      [765, 60]
+      Position      [1050, 190]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -856,19 +763,145 @@ Plecs {
         Show          off
       }
     }
-    Connection {
-      Type          Signal
-      SrcComponent  "Phase Offset"
-      SrcTerminal   2
-      DstComponent  "Trigonometric\nFunction1"
-      DstTerminal   1
+    Component {
+      Type          Trigonometry
+      Name          "Trigonometric\nFunction1"
+      Show          on
+      Position      [800, 275]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Operator"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Unit"
+        Value         "1"
+        Show          off
+      }
     }
-    Connection {
-      Type          Signal
-      SrcComponent  "Phase Offset1"
-      SrcTerminal   2
-      DstComponent  "Trigonometric\nFunction2"
-      DstTerminal   1
+    Component {
+      Type          Gain
+      Name          "Adj1"
+      Show          on
+      Position      [870, 275]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "K"
+        Value         "0.5"
+        Show          off
+      }
+      Parameter {
+        Variable      "Multiplication"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Offset
+      Name          "Phase Offset1"
+      Show          on
+      Position      [660, 275]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-30, -10; 30, 10]
+      Parameter {
+        Variable      "Offset"
+        Value         "pi"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Math
+      Name          "Math1"
+      Show          on
+      Position      [1010, 500]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Operator"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Math
+      Name          "Math"
+      Show          on
+      Position      [860, 220]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Operator"
+        Value         "6"
+        Show          off
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Amplitude1"
+      Show          on
+      Position      [745, 240]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-25, -10; 25, 10]
+      Parameter {
+        Variable      "Value"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Trigonometry
+      Name          "Trigonometric\nFunction2"
+      Show          on
+      Position      [780, 345]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Operator"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Unit"
+        Value         "1"
+        Show          off
+      }
     }
     Connection {
       Type          Signal
@@ -879,53 +912,23 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Trigonometric\nFunction"
-      SrcTerminal   2
-      Points        [635, 80; 635, 135]
-      DstComponent  "Mux2"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Trigonometric\nFunction1"
-      SrcTerminal   2
-      DstComponent  "Mux2"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Trigonometric\nFunction2"
-      SrcTerminal   2
-      Points        [635, 215; 635, 155]
-      DstComponent  "Mux2"
-      DstTerminal   4
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Integrator"
       SrcTerminal   2
-      Points        [390, 145]
+      Points        [555, 275]
       Branch {
-        DstComponent  "Phase Offset"
+        Points        [555, 345]
+        DstComponent  "Trigonometric\nFunction2"
         DstTerminal   1
       }
       Branch {
-        Points        [390, 215]
+        Points        [555, 210; 775, 210; 775, 215]
+        DstComponent  "Math"
+        DstTerminal   2
+      }
+      Branch {
         DstComponent  "Phase Offset1"
         DstTerminal   1
       }
-      Branch {
-        Points        [390, 80]
-        DstComponent  "Phase Offset2"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Compare to\nConstant"
-      SrcTerminal   2
-      DstComponent  "Powerstage Protection"
-      DstTerminal   1
     }
     Connection {
       Type          Signal
@@ -943,23 +946,16 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Set Speed"
-      SrcTerminal   1
-      DstComponent  "Rate Limiter"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Rate Limiter"
       SrcTerminal   2
-      Points        [225, 145]
+      Points        [390, 275]
       Branch {
-        Points        [225, 90]
+        Points        [390, 220]
         DstComponent  "Rate Limited Speed"
         DstTerminal   1
       }
       Branch {
-        Points        [225, 320]
+        Points        [390, 415]
         DstComponent  "Compare to\nConstant"
         DstTerminal   1
       }
@@ -970,18 +966,49 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Phase Offset2"
+      SrcComponent  "Compare to\nConstant"
       SrcTerminal   2
-      DstComponent  "Trigonometric\nFunction"
+      Points        [475, 415; 475, 445]
+      DstComponent  "Logical\nOperator"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Compare to\nConstant1"
+      SrcTerminal   2
+      Points        [475, 475; 475, 455]
+      DstComponent  "Logical\nOperator"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Set Speed"
+      SrcTerminal   1
+      Points        [265, 275]
+      Branch {
+        DstComponent  "Rate Limiter"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [265, 475]
+        DstComponent  "Compare to\nConstant1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Logical\nOperator"
+      SrcTerminal   1
+      DstComponent  "Powerstage Protection"
       DstTerminal   1
     }
     Connection {
       Type          Signal
       SrcComponent  "Adj"
       SrcTerminal   2
-      Points        [805, 60; 805, 105]
+      Points        [1090, 190; 1090, 235]
       Branch {
-        Points        [855, 105]
+        Points        [1140, 235]
         DstComponent  "Sum"
         DstTerminal   3
       }
@@ -999,13 +1026,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Amplitude"
-      SrcTerminal   1
-      DstComponent  "Adj"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Mux2"
       SrcTerminal   1
       DstComponent  "Product1"
@@ -1015,17 +1035,74 @@ Plecs {
       Type          Signal
       SrcComponent  "Sum"
       SrcTerminal   1
-      Points        [895, 145]
+      Points        [1175, 275]
       Branch {
-        Points        [895, 100]
         DstComponent  "PWM"
         DstTerminal   1
       }
       Branch {
-        Points        [895, 190]
+        Points        [1175, 320]
         DstComponent  "Scope"
         DstTerminal   1
       }
     }
+    Connection {
+      Type          Signal
+      SrcComponent  "Amplitude"
+      SrcTerminal   1
+      Points        [1015, 185; 1015, 190]
+      DstComponent  "Adj"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Trigonometric\nFunction1"
+      SrcTerminal   2
+      DstComponent  "Adj1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Adj1"
+      SrcTerminal   2
+      DstComponent  "Mux2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Phase Offset1"
+      SrcTerminal   2
+      DstComponent  "Trigonometric\nFunction1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Amplitude1"
+      SrcTerminal   1
+      Points        [805, 240; 805, 225]
+      DstComponent  "Math"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Math"
+      SrcTerminal   1
+      Points        [930, 220; 930, 265]
+      DstComponent  "Mux2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Trigonometric\nFunction2"
+      SrcTerminal   2
+      Points        [935, 345; 935, 285]
+      DstComponent  "Mux2"
+      DstTerminal   4
+    }
+    Annotation {
+      Name          "<html><body>\n<p>Maps -1 to 1 onto 0 to Amplitude</p></bo"
+"dy></html>"
+      Position      [1035, 155]
+    } 
   }
 }
