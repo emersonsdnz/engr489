@@ -19,6 +19,9 @@
 \newacronym{acm}{ACM}{Association for Computing Machinery}
 \newacronym{ieee}{IEEE}{Institute of Electrical and Electronics Engineers}
 
+\usepackage[style=ieee]{biblatex}
+\addbibresource{sample.bib}
+
 %% We don't want figures to float so we define
 %%
 \newfloat{fig}{thp}{lof}[section]
@@ -26,7 +29,7 @@
 
 %% These are standard LaTeX definitions for the document
 %%
-\title{Embedded Control of Flux Pumps}
+\title{Project Proposal:\\ Embedded Control of Transformer-Rectifier Flux Pump}
 \author{Emerson Swanson-Dobbs}
 
 %% This file can be used for creating a wide range of reports
@@ -46,7 +49,7 @@
 \usepackage[image,ecs]{vuwproject} 
 
 % You should specifiy your supervisor here with
-\supervisor{Adam Francis}
+\supervisor{Adam Francis and Dale Carnegie}
 % use \supervisors if there are more than one supervisor
 
 % Unless you've used the bschonscomp or mcompsci
@@ -65,9 +68,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-Flux pumps are devices used to wirelessly power High-Temperature Superconductor (HTS) electromagnets, which are useful for creating very strong magnetic fields. For these flux pumps to be a viable commercial product, the control 
-
-To help commercialize these flux pumps, I will implement a control scheme for two flux pumps on a TI C2000 microcontroller.
+Flux pumps are devices used to wirelessly power High-Temperature Superconductor (HTS) electromagnets, which are useful for creating very strong magnetic fields. Robinson Research is a superconductor lab based in Lower Hutt that is currently working on commercializing flux pumps that they've developed. As part of this, they want to move away from using large external power supplies and code running on PCs to drive and control these flux pumps. This will be done by developing an embedded system that can drive and control a transformer-rectifier flux pump. A GaN inverter will be used to produce the waveforms needed to pump the current. This will be controlled using a C2000 microcontroller. The embedded system that is developed will be compared to the preexisting non-embedded system. It can be evaluated by considering characteristics desirable for power supplies, such as high efficiency and low noise.
 
 % This document gives some ideas about how to write a project proposal, and provides a template for a proposal. You should discuss your proposal with your supervisor. When writing the abstract (this part), you will need to include the following information at the minimum: (\textit{i}) the problem you are solving and why it matters [1-2 sentences]; (\textit{ii}) how you plan to solve the problem, including the resources you will need [1-3 sentences]; and (\textit{iii}) expected output(s) of your project and how you plan to test and evaluate them [1-2 sentences]. For this proposal, the abstract should be a single paragraph and should contain 150-250 words.
 \end{abstract}
@@ -92,126 +93,186 @@ To help commercialize these flux pumps, I will implement a control scheme for tw
 
 \section{Introduction}
 
-In this section you should include a very brief introduction to the
-problem and the project.
+Flux pumps are superconducting power supplies that can generate very large currents wirelessly. Robinson is a global leader in flux pump research, especially transformer-rectifier flux pumps. A goal of theirs is to commercialize the flux pumps that they develop. Transformer-rectifier flux pumps need three separate waveforms, that drive a transformer and two electromagnets \cite{fpreview}. This is currently provided using a rack of three large power supplies controlled by code running on a PC. This is unwieldy and expensive, and they want to move away from this in the commercial product they are developing. Instead, an embedded system needs to be developed that provides the high-power waveforms and control logic in a much smaller package.
 
-Your project proposal should cover the following points:
+The transformer and electromagnets will be driven by a three-output GaN inverter controlled by a Texas Instruments C2000 board. The C2000 will be programmed using PLECS, a power electronics simulator and programming tool. Once the system to control the flux pump is designed, it can be evaluated by comparing it to the non-embedded system that Robinson currently uses for driving flux pumps.
 
-\begin{itemize}
-	\item the engineering problem that you are going to solve;
-	\item how you plan to solve your problem;
-	\item how you intend to evaluate your solution; and
-	\item any resource requirements for your project such as software,
-	hardware or other resources that will be needed in the course of the project.
-\end{itemize}
+% In this section you should include a very brief introduction to the
+% problem and the project.
 
-\textbf{Your proposal should be not more than than 8 pages long.} 
+% Your project proposal should cover the following points:
+
+% \begin{itemize}
+% 	\item the engineering problem that you are going to solve;
+% 	\item how you plan to solve your problem;
+% 	\item how you intend to evaluate your solution; and
+% 	\item any resource requirements for your project such as software,
+% 	hardware or other resources that will be needed in the course of the project.
+% \end{itemize}
+
+% \textbf{Your proposal should be not more than than 8 pages long.} 
 
 \section{The Problem}
+Currently, for controlling flux pumps, Robinson uses a rack of three room-temperature kilo-ampere power supplies. This is unwieldy, and it would be much more convenient to have a small, self-contained control mechanism. This also would be desirable for Robinson's goal of commercialization, as flux pumps have broad applications in fusion energy, electric aircraft, and magnet technology.
 
-In this section you should give a clear and concise description of the problem
-itself. You want to briefly explain the problem, why it is important
-to solve the problem and define your project aims. After reading this
-section, the reader should understand why it is a problem, believe
-that it is important to solve and have a clear idea of the aims of
-your project.
+This project aims to implement and evaluate a system for controlling a transformer-rectifier flux pump using a microcontroller. This system should enable the flux pump to pump current without needing multiple external power supplies or a PC to control it.
 
-When describing the aims of the project, you should avoid vague,
-unmeasurable words like `analyse', `investigate', `describe', and use
-specific, measurable words like `implement', `demonstrate', `show',
-`prove'.
+% In this section you should give a clear and concise description of the problem
+% itself. You want to briefly explain the problem, why it is important
+% to solve the problem and define your project aims. After reading this
+% section, the reader should understand why it is a problem, believe
+% that it is important to solve and have a clear idea of the aims of
+% your project.
 
-For example:
+% When describing the aims of the project, you should avoid vague,
+% unmeasurable words like `analyse', `investigate', `describe', and use
+% specific, measurable words like `implement', `demonstrate', `show',
+% `prove'.
 
-\begin{description}
-	\item[Good] The aim of this project is to implement and evaluate a management system for network switches;
-\end{description}
-is much better than:
-\begin{description}
-	\item[Bad] The aim of this project is to investigate management
-	systems for network switches.
-\end{description}
+% For example:
 
-In the second case there is no idea of how much work is involved, and
-you will never know whether you have finished. You and your supervisor (and the markers of your project) may have very different ideas about what such an `investigation' involves. Of course, it is possible that the task you set yourself is not achievable, but if you are clear from the outset this is less likely, and will more easily be corrected.
+% \begin{description}
+% 	\item[Good] The aim of this project is to implement and evaluate a management system for network switches;
+% \end{description}
+% is much better than:
+% \begin{description}
+% 	\item[Bad] The aim of this project is to investigate management
+% 	systems for network switches.
+% \end{description}
+
+% In the second case there is no idea of how much work is involved, and
+% you will never know whether you have finished. You and your supervisor (and the markers of your project) may have very different ideas about what such an `investigation' involves. Of course, it is possible that the task you set yourself is not achievable, but if you are clear from the outset this is less likely, and will more easily be corrected.
 
 \section{Proposed Solution}
 
-In this section you will explain how you plan to solve the problem, that is, how you intend to carry the project out. At this early stage you need to be both clear about what you are going to do and flexible enough to adapt to changing circumstances. Making an early plan will not prevent you from running into trouble, but it will help you identify possible problems early. For example, if you intended to run an experiment in \gls{hci}, you might realise early on that there would be problems gathering sufficient data to get reliable results, and that you should re-design your experiment.
+Due to others in the organization using it, the system will be implemented using a Texas Instruments C2000 real-time microcontroller. A transformer-rectifier flux pump requires three high-current signals acting in sync to control it - one powering a transformer, and two controlling the rectification.  A three-phase inverter daughter board (BoostXL GaN) can be controlled by the C2000 using PWM, and this will provide power to the flux pump. The system will be programmed in PLECS, software designed for simulating and designing power electronics systems that can also program C2000 boards.
 
-Part of the planning process involves producing a timetable for when
-the work is actually going to be done.
+The tools and specifications have been provided by Robinson, now they must be turned into a functional system. The plan for doing this, and the timescale, is as follows.
 
-Each part of the project should produce some output. For example you
-might plan on spending two weeks on background reading: the output of
-this will be a bibliography, and a possibly a literature survey for
-your report. Indeed, if you take the advice given above about having
-specific, measurable goals, you should describe this part of your
-project as:
+\begin{enumerate}
+	\item Get familiar with using the C2000 microcontroller, the 3-phase inverter daughter board, and the PLECS programming environment. I'll do so by trying to get a small 3-phase AC motor to spin - this ensures I know how to get a specific output from the inverter. Two weeks.
+	\item Drive high-inductance loads using just one channel of the board - ensure it can work with asymmetric outputs. Hour or so.
+	\item Optimise the output signal, focusing on low noise in a current supplied to an inductor. This may include designing a power supply. Four weeks.
+	\item Operate the inverter's three outputs individually, with different amplitudes and signal shapes. Also, ensure the timing of the outputs is synced to the same clock, and they can stay in phase indefinitely. One week.
+	\item Do the above but with three different inductances on each output. One week.
+	\item Drive an HTS secondary loop using a transformer, and sense the current and voltage of the loop to check the signal transfer. Two weeks.
+	\item Drive an electromagnet (to be used in rectification) and sense the magnetic field across the air gap to check this is behaving as expected. Two weeks.
+	\item Run two switches and transformers at the same time. One week.
+	\item Drive a superconducting transformer rectifier flux pump. One week.
+\end{enumerate}
+With the completion of the tasks above, an embedded system for driving a transformer-rectifier flux pump will have been developed. Robinson has also indicated other tasks that would be desirable to accomplish if everything above is done earlier than expected.
+\begin{enumerate}
+	\item Create a SPICE model of the system, using a PWM block connected to a transformer with a superconductor coil on the secondary loop. This would help gain an understanding of the system.
+	\item Do the above with a simple ohmic (non-superconducting) half-wave rectifier in the secondary circuit.
+	\item Design a GaN driver board in KiCad or similar based on the TI BoostXL that could replace it.
+	\item Get the board made, and test it with the same inductors to compare the performance.
+	\item Design a board that includes a C2000 chip and PWM unit to control this inverter board, to move away from using the evaluation board currently being used.
+\end{enumerate}
+The literature related to the project is also important. Early on and throughout the experimental part of the project, literature will be read and reviewed.
+\begin{enumerate}
+	\item Using PWM to drive inductors/transformers.
+	\item Transformer design for switched-mode power supplies.
+	\item Signal smoothing considerations.
+	\item Ohmic transformer-rectifier systems.
+	\item Superconducting transformer-rectifiers.
+\end{enumerate}
 
-\begin{description}
-	\item[Good] Produce bibliography (est: 2 weeks)
-\end{description}
-rather than
-\begin{description}
-	\item[\bf Bad] Background reading (est: 2 weeks)
-\end{description}
+% In this section you will explain how you plan to solve the problem, that is, how you intend to carry the project out. At this early stage you need to be both clear about what you are going to do and flexible enough to adapt to changing circumstances. Making an early plan will not prevent you from running into trouble, but it will help you identify possible problems early. For example, if you intended to run an experiment in \gls{hci}, you might realise early on that there would be problems gathering sufficient data to get reliable results, and that you should re-design your experiment.
 
-Note that the methodology you outline here is dependent upon the type
-of project and engineering area. You must talk to your supervisor
-about this.
+% Part of the planning process involves producing a timetable for when
+% the work is actually going to be done.
+
+% Each part of the project should produce some output. For example you
+% might plan on spending two weeks on background reading: the output of
+% this will be a bibliography, and a possibly a literature survey for
+% your report. Indeed, if you take the advice given above about having
+% specific, measurable goals, you should describe this part of your
+% project as:
+
+% \begin{description}
+% 	\item[Good] Produce bibliography (est: 2 weeks)
+% \end{description}
+% rather than
+% \begin{description}
+% 	\item[\bf Bad] Background reading (est: 2 weeks)
+% \end{description}
+
+% Note that the methodology you outline here is dependent upon the type
+% of project and engineering area. You must talk to your supervisor
+% about this.
 
 \section{Evaluating your Solution}
-
-In this section you will explain how you will evaluate your solution
-once you have built it. The method of evaluation will be domain
-specific. Your supervisor should provide guidance as to what is an
-appropriate form of evaluation. For example, user testing for a \gls{hci} project or performance measurement for a Network Engineering project.
+Robinson has an existing method for controlling a transformer-rectifier flux pump. The system I design can be compared to this, and evaluated on several desirable characteristics of a power supply. These include efficiency, low noise, and high maximum output. The system can also be evaluated on how compact it is, as this is why a new system is being designed.
+% In this section you will explain how you will evaluate your solution
+% once you have built it. The method of evaluation will be domain
+% specific. Your supervisor should provide guidance as to what is an
+% appropriate form of evaluation. For example, user testing for a \gls{hci} project or performance measurement for a Network Engineering project.
 
 \section{Resourcing and Ethics}
 
-In this section you will detail any resource requirements such as hardware, software or access. You should address each of these points, even if only to indicate that they are not of particular concern to your project.
-
+% In this section you will detail any resource requirements such as hardware, software or access. You should address each of these points, even if only to indicate that they are not of particular concern to your project.
 
 \subsection{Hardware}
+All of the hardware needed for the project will be provided by Robinson. This includes:
+\begin{itemize}
+	\item TI C2000 LaunchPad evaluation board.
+	\item 3PhGaNInv daughter board.
+	\item Benchtop laboratory power supply.
+	\item Oscilloscope, at least three channels.
+	\item Large inductors.
+	\item A transformer.
+	\item Two C-core electromagnets.
+	\item Simple solid-core wire.
+	\item Banana/croc cables.
+	\item Wire strippers.
+	\item Loop of HTS tape.
+\end{itemize}
 
-Discuss the hardware components that your project will be using. You need not include the computers that you will be using to carry out the development, unless your project requires specialised computer hardware to do this part. Example hardware components are machines, lab instruments, musical instruments, robots, drones, servers, mobile devices, single-board computers, sensors, actuators, circuits and circuit components, network equipment, solar panels, batteries, enclosures, mounting poles, etc.  
+% Discuss the hardware components that your project will be using. You need not include the computers that you will be using to carry out the development, unless your project requires specialised computer hardware to do this part. Example hardware components are machines, lab instruments, musical instruments, robots, drones, servers, mobile devices, single-board computers, sensors, actuators, circuits and circuit components, network equipment, solar panels, batteries, enclosures, mounting poles, etc.  
 
 \subsection{Software, Datasets and Models}
+\begin{itemize}
+	\item PLECS simulation platform for power electronic systems with C2000 programming addon. This will be used to design the program to be put on the C2000 board.
+	\item KiCad with SPICE for modeling the system designed.
+\end{itemize}
 
-Discuss the specialised software (applications, compilers, libraries, development kits, simulators, solvers, etc) to be used. You need not include common desktop software such as browsers, office applications, IDEs, and editors. This is also the place to mention datasets and models that you plan to use. 
+% Discuss the specialised software (applications, compilers, libraries, development kits, simulators, solvers, etc) to be used. You need not include common desktop software such as browsers, office applications, IDEs, and editors. This is also the place to mention datasets and models that you plan to use. 
 
 \subsection{Space, Virtual Resources and Access}
-
-Discuss the space (for instance labs or specialised rooms, outdoor fields) and resources that can be accessed virtually (for instance computing grid, virtual machines, network testbeds) that your project will use, and how you plan to obtain access them. 
+I will be doing the work at Robinson's Sydney Street site. They have provided a lab space and a desk. I'll also use a desk on CO239 for doing work at Kelburn.
+% Discuss the space (for instance labs or specialised rooms, outdoor fields) and resources that can be accessed virtually (for instance computing grid, virtual machines, network testbeds) that your project will use, and how you plan to obtain access them. 
 
 \subsection{Budget}
+All materials will be provided by Robinson. No need to purchase anything with the ENGR489 budget.
 
-Provide an estimate of the budget for the project. If the budget is more than \$500 you should indicate any sources of funding outside the normal ENGR 489 budget. The purchase of special tools or software etc. may not need to be included in your \$500 limit, however, if something is necessary for your project you should definitely list it here.
+% Provide an estimate of the budget for the project. If the budget is more than \$500 you should indicate any sources of funding outside the normal ENGR 489 budget. The purchase of special tools or software etc. may not need to be included in your \$500 limit, however, if something is necessary for your project you should definitely list it here.
 
-Do not pad the budget to get it up to \$500.
+% Do not pad the budget to get it up to \$500.
 
 \subsection{Ethics}
-
-Are there ethical considerations with the design or the evaluation of your work? For example, there may be constraints on the possible set of solutions that you could explore. If you want to undertake user testing of your system, then you will need human ethics approval.
+There are no ethical considerations for this project.
+% Are there ethical considerations with the design or the evaluation of your work? For example, there may be constraints on the possible set of solutions that you could explore. If you want to undertake user testing of your system, then you will need human ethics approval.
 
 \subsection{Safety}
-
-Discuss key health and safety aspects of your project. Note that you will still need to fill up the appropriate Health and Safety documents.
-
+\begin{itemize}
+	\item This project involves working with benchtop power supplies and microcontrollers, so standard safety procedures need to be taken for working with these.
+	\item The flux pump will provide potentially thousands of amperes - Robinson has lots of experience working with very high currents and there are existing safety protocols to follow.
+	\item The system will be tested using high-temperature superconductor, which operates submerged in liquid nitrogen. This is at 77K, so caution has to be taken when working with this. Robinson has cryogenic safety equipment to use, and I have been given training on safe use.
+\end{itemize}
+% Discuss key health and safety aspects of your project. Note that you will still need to fill up the appropriate Health and Safety documents.
 
 \subsection{Intellectual Property}
-
-Discuss intellectual property with potential commercial value that might be developed in the project. See the Handbook for more information regarding IP agreements.  
+Robinson has provided an IP form which I have signed. Any intellectual property produced during this project will be assigned to Robinson to be used. 
+% Discuss intellectual property with potential commercial value that might be developed in the project. See the Handbook for more information regarding IP agreements.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\bibliographystyle{ieee}
-\bibliographystyle{acm}
-\bibliography{sample}
+% \bibliographystyle{ieee}
+% \bibliographystyle{acm}
+\printbibliography
 
-When listing references, follow an appropriate citation or bibliography format. For engineering and computer science, the most appropriate formats are from the \gls{acm} and \gls{ieee}. Example citation:~\cite{knuth1997art}.
+% When listing references, follow an appropriate citation or bibliography format. For engineering and computer science, the most appropriate formats are from the \gls{acm} and \gls{ieee}. Example citation:~\cite{knuth1997art}.
 
 \end{document}

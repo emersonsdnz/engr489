@@ -1,9 +1,69 @@
-\begin{thebibliography}{1}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem{knuth1997art}
-{\sc Knuth, D.~E.}
-\newblock {\em The Art of Computer Programming: Fundamental Algorithms, volume
-  1}.
-\newblock Addison-Wesley Professional, 1997.
 
-\end{thebibliography}
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{fpreview}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c84e3f2ea03c20b98e6df97d624fa017}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={Zezhao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=e64a63c80299f69d91f7cb9eb1548e38}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Hongye},
+           giveni={H\bibinitperiod}}}%
+        {{hash=878751cc1263f7d8d9184ce66046138c}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a07d38bed57738263aca800424a8a78}
+      \strng{fullhash}{0a07d38bed57738263aca800424a8a78}
+      \strng{bibnamehash}{0a07d38bed57738263aca800424a8a78}
+      \strng{authorbibnamehash}{0a07d38bed57738263aca800424a8a78}
+      \strng{authornamehash}{0a07d38bed57738263aca800424a8a78}
+      \strng{authorfullhash}{0a07d38bed57738263aca800424a8a78}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2073-4352}
+      \field{journaltitle}{Crystals}
+      \field{number}{6}
+      \field{title}{High Temperature Superconducting Flux Pumps for Contactless Energization}
+      \field{volume}{12}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.3390/cryst12060766
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2073-4352/12/6/766
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2073-4352/12/6/766
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
